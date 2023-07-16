@@ -24,7 +24,7 @@ import { update as tweenUpdate } from "@tweenjs/tween.js";
 import Store from "@/lib/store/store";
 import EventStore from "@/lib/store/eventStore";
 import { TransformControls } from "three/examples/jsm/controls/TransformControls";
-import { merge } from "lodash";
+import { merge } from "lodash-es";
 
 export default class ChartScene {
   options: Options;
