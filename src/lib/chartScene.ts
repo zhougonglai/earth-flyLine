@@ -64,7 +64,8 @@ export default class ChartScene {
     const {
       dom,
       cameraType = "OrthographicCamera",
-      light = "DirectionalLight",
+      light = "AmbientLight",
+      // light = "DirectionalLight",
       helper = false,
       map = "world",
       config,
@@ -128,7 +129,7 @@ export default class ChartScene {
       // 设置光源位置
       light.position.set(2000, 2000, 3000);
       // 设置用于计算阴影的光源对象
-      light.castShadow = true;
+      light.castShadow = false;
       this.scene.add(light);
     } else if (lightType === "AmbientLight") {
       const light = new AmbientLight(color, 1);

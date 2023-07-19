@@ -143,7 +143,7 @@ export default class FlyLine3d {
     );
     const material = new PointsMaterial({
       vertexColors: true, //使用顶点颜色渲染
-      size: 3.0, //点大小
+      size: 1.5, //点大小
     });
     const tadpolePointsMesh = new Points(geometry, material);
     material.onBeforeCompile = function (shader) {
