@@ -24,7 +24,7 @@
   "main": "dist/index.es.js",
   "typings": "dist/entry.d.ts",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port=8080 --host",
     "lib": "vue-tsc && vite build --mode lib",
     "doc": "vue-tsc && vite build"
   },

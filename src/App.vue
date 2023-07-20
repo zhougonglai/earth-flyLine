@@ -5,7 +5,6 @@ import worldTexture from "./image/tencent_earth.png";
 import world from "./map/world.json";
 import chart from "@/entry";
 import ChartScene from "@/lib/chartScene";
-let chartInstance: ChartScene;
 let chartInstance1: ChartScene;
 
 const geoJson: any = world;
@@ -19,9 +18,10 @@ onMounted(() => {
       map: "world",
       autoRotate: true,
       mode: "3d",
+      rotateSpeed: .004,
       config: {
         bgColor: '#f5f7fa',
-        R: 150,
+        R: 220,
         texture: worldTexture,
         earth: {
           // color: "#13162c",
@@ -45,10 +45,10 @@ onMounted(() => {
         scatterStyle: {
           //涟漪
           color: "white",
-          size: 0.05,
-          duration: 0,
-          delay: 0,
-          repeat: 0
+          size: 1,
+          // duration: 0,
+          // delay: 0,
+          // repeat: 0
         },
         // hoverRegionStyle: {
         //   areaColor: "#cd79ff",
@@ -270,6 +270,6 @@ onMounted(() => {
 <style lang="less" scoped>
 #container1 {
   width: 1200px;
-  height: 800px;
+  height: 900px;
 }
 </style>

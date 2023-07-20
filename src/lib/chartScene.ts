@@ -95,8 +95,12 @@ export default class ChartScene {
     //设置控制器
     const obControl = new OrbitControls(this.camera, this.renderer.domElement);
     if (this._store.mode === "3d") {
-      obControl.enableRotate = false;
+      obControl.enableRotate = true;
       obControl.enablePan = false;
+      obControl.enableZoom = false;
+
+      obControl.dampingFactor = .5;
+      obControl.enableDamping = true
     }
     dom.appendChild(this.renderer.domElement);
   }
@@ -114,6 +118,7 @@ export default class ChartScene {
   createCamera() {
     const camera = new PerspectiveCamera(
       95,
+      // 45,
       this.style.width / this.style.height,
       1,
       1500
@@ -184,7 +189,7 @@ export default class ChartScene {
     // 创建一个时钟对象Clock
     const clock = new Clock();
     // 设置渲染频率为30FBS，也就是每秒调用渲染器render方法大约30次
-    const FPS = 30;
+    const FPS = 60;
     const renderT = 1 / FPS; //单位秒  间隔多长时间渲染渲染一次
     // 声明一个变量表示render()函数被多次调用累积时间
     // 如果执行一次renderer.render，timeS重新置0
@@ -204,6 +209,8 @@ export default class ChartScene {
       tweenUpdate();
       if (this.options.mode === "3d" && this.options.autoRotate) {
         this.mainContainer.rotateY(this.options.rotateSpeed!);
+        // this.mainContainer.rotateOnWorldAxis()
+        // this.mainContainer.rotateOnAxis(new Vector3(-5, 2, -2), this.options.rotateSpeed!)
       }
       this.renderer.render(this.scene, this.camera);
     }
